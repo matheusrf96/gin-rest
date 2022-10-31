@@ -1,8 +1,22 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
+
+func getStudents(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{
+		"id":   "1",
+		"name": "matheus",
+	})
+}
 
 func main() {
 	r := gin.Default()
-	r.Run()
+
+	r.GET("/students", getStudents)
+
+	r.Run(":5000")
 }
