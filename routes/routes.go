@@ -8,4 +8,5 @@ import (
 func HandleRequests(r *gin.Engine) {
 	r.GET("/students", controllers.GetStudents)
 	r.GET(":name", controllers.Aopa)
+	r.POST("/students", controllers.CreateStudent)
 }

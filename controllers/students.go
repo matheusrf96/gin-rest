@@ -4,6 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/matheusrf96/gin-rest/db"
+	"github.com/matheusrf96/gin-rest/models"
 )
 
 func GetStudents(c *gin.Context) {
@@ -11,6 +13,21 @@ func GetStudents(c *gin.Context) {
 		"id":   "1",
 		"name": "matheus",
 	})
+}
+
+func CreateStudent(c *gin.Context) {
+	var student models.Student
+
+	err := c.ShouldBindJSON(&student)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
+		return
+	}
+
+	db.DB.Create(&student)
+	c.JSON(http.StatusOK, student)
 }
 
 func Aopa(c *gin.Context) {
