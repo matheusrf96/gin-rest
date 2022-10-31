@@ -1,22 +1,14 @@
 package main
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
+	"github.com/matheusrf96/gin-rest/routes"
 )
-
-func getStudents(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"id":   "1",
-		"name": "matheus",
-	})
-}
 
 func main() {
 	r := gin.Default()
 
-	r.GET("/students", getStudents)
+	routes.HandleRequests(r)
 
 	r.Run(":5000")
 }
