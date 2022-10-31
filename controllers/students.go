@@ -12,3 +12,11 @@ func GetStudents(c *gin.Context) {
 		"name": "matheus",
 	})
 }
+
+func Aopa(c *gin.Context) {
+	name := c.Params.ByName("name")
+
+	c.JSON(http.StatusOK, gin.H{
+		"message": "Aopa " + name,
+	})
+}

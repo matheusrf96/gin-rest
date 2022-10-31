@@ -7,4 +7,5 @@ import (
 
 func HandleRequests(r *gin.Engine) {
 	r.GET("/students", controllers.GetStudents)
+	r.GET(":name", controllers.Aopa)
 }
