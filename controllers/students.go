@@ -22,6 +22,14 @@ func GetStudentsById(c *gin.Context) {
 	id := c.Params.ByName("id")
 	db.DB.First(&student, id)
 
+	if student.ID == 0 {
+		c.JSON(http.StatusNotFound, gin.H{
+			"message": "Student not found",
+		})
+
+		return
+	}
+
 	c.JSON(http.StatusOK, student)
 }
 
