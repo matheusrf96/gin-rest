@@ -16,4 +16,5 @@ func HandleRequests(r *gin.Engine) {
 	r.GET("/students", controllers.GetStudents)
 	r.GET("/students/:id", controllers.GetStudentsById)
 	r.POST("/students", controllers.CreateStudent)
+	r.DELETE("/students/:id", controllers.RemoveStudent)
 }
