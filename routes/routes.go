@@ -15,6 +15,7 @@ func HandleRequests(r *gin.Engine) {
 	})
 	r.GET("/students", controllers.GetStudents)
 	r.GET("/students/:id", controllers.GetStudentsById)
+	r.GET("/students/cpf/:cpf", controllers.GetStudentsByCpf)
 	r.POST("/students", controllers.CreateStudent)
 	r.PATCH("/students/:id", controllers.UpdateStudent)
 	r.DELETE("/students/:id", controllers.RemoveStudent)
