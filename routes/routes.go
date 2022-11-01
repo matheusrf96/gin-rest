@@ -10,9 +10,10 @@ import (
 func HandleRequests(r *gin.Engine) {
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
-			"message": "Aopa ",
+			"message": "Aopa!",
 		})
 	})
 	r.GET("/students", controllers.GetStudents)
+	r.GET("/students/:id", controllers.GetStudentsById)
 	r.POST("/students", controllers.CreateStudent)
 }
