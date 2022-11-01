@@ -30,11 +30,3 @@ func CreateStudent(c *gin.Context) {
 	db.DB.Create(&student)
 	c.JSON(http.StatusOK, student)
 }
-
-func Aopa(c *gin.Context) {
-	name := c.Params.ByName("name")
-
-	c.JSON(http.StatusOK, gin.H{
-		"message": "Aopa " + name,
-	})
-}
